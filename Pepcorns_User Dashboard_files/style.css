@@ -1,0 +1,318 @@
+
+
+.alertCustom
+{
+    position: fixed; 
+    top: 45px;
+    right: 10px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999999999999;
+    width: 50%;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    
+}
+
+.alert-success
+{
+    color: #fff;
+    border-color: #4fd69c; 
+    background-color: #4fd69c;
+}
+
+
+
+
+.alert-danger
+{
+    color: #fff;
+    border-color: #f75676; 
+    background-color: #f75676;
+}
+.alert-danger hr
+{
+    border-top-color: #f63e62;
+}
+.alert-danger .alert-link
+{
+    color: #ec0c38;
+}
+
+
+.alertCustom
+{
+    font-size: 0.9em;
+}
+
+
+
+/* step process */
+.multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
+    content: counter(stepNum);
+    font-family: inherit;
+    font-weight: 700;
+}
+.multi-steps > li.is-active:after, .multi-steps > li.is-active ~ li:after {
+    background-color: #ededed;
+}
+.multi-steps {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.multi-steps > li {
+    counter-increment: stepNum;
+    text-align: center;
+    display: table-cell;
+    position: relative;
+    color: tomato;
+}
+.multi-steps > li:before {
+    content: '\f00c';
+    content: '\2713';
+    content: '\10003';
+    content: '\10004';
+    content: '\2713';
+    display: block;
+    margin: 0 auto 4px;
+    background-color: #fff;
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    border-color: tomato;
+    border-radius: 50%;
+}
+.multi-steps > li:after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background-color: tomato;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    z-index: -1;
+}
+.multi-steps > li:last-child:after {
+    display: none;
+}
+.multi-steps > li.is-active:before {
+    background-color: #fff;
+    border-color: tomato;
+}
+.multi-steps > li.is-active ~ li {
+    color: #808080;
+}
+.multi-steps > li.is-active ~ li:before {
+    background-color: #ededed;
+    border-color: #ededed;
+}
+
+
+._720kb-datepicker-calendar-day._720kb-datepicker-today {
+    background:red;
+    color:white;
+  }
+
+
+  #cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+   
+    z-index:9999;
+    display:block;
+}
+
+@-webkit-keyframes spin {
+	from {-webkit-transform:rotate(0deg);}
+	to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+#cover-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:40px;height:40px;
+    border-style:solid;
+    border-color:#8699ca;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+.navmenu_active_cust{
+    /* background-color: #e6e6e6;
+    border-left: 10px solid #6e6e6e;
+    color: #172b4d; */
+
+    margin-right: .5rem;
+    
+    padding-right: 1rem;
+    
+    border-radius: .375rem;
+    background: #f6f9fc;
+}
+
+.close.setting_style {
+    margin-top: -1px; 
+    margin-right: -10px;
+    padding-left: 10px;
+}
+
+.ta-editor.form-control.myform2-height, .ta-scroll-window.form-control.myform2-height  {
+    height: 300px;
+    min-height: 300px;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+.form-control.myform2-height > .ta-bind {
+    min-height: 300px;
+    padding: 6px 12px;
+}
+
+#favoritebtn {
+    position: absolute;
+    padding:10px;
+    background: rgb(160, 159, 159);
+    color: white;
+    top: 10px;
+    right: 10px;
+}
+
+.progress_ring_initial {
+    border-color: #6f6fae !important;
+    border-width: thick !important;
+}
+
+.progress_ring_intermediate {
+    border-color: #465eec !important;
+    border-width: thick !important;
+}
+
+.progress_ring_final {
+    border-color: #35f8a4 !important;
+    border-width: thick !important;
+}
+
+.progress_ring_pro {
+    border-color: #fc345c !important;
+    border-width: thick !important;
+}
+
+.container {
+    /* Used to position the overlay */
+    position: relative;
+}
+
+.container__overlay {
+    /* Position */
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /* Add a dark background */
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.wrappercustom {
+  word-wrap: break-word;
+}
+
+.wrappercustom img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+body {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+.campaigncard{
+    height: 650px;
+    margin-bottom: 15px;
+}
+.campaigncard .card-profile{
+    height: 650px;
+}
+.campaigncard .card-img-top{
+    height: 350px;
+    max-height: 350px !important;
+    overflow: hidden;
+    padding: 10px;
+
+}
+
+.footertags{
+    overflow: hidden;    
+    max-height: 100px
+
+}
+
+.footertags span{
+    display: inline-block !important;
+}
+
+.avatar > img {
+    max-height: 75px;
+    max-width: 75px;
+}
+
+
+.videoContainer {
+    position:contain;
+}
+.playBtn {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    left: 50%;
+    top: 50%;
+    margin-left: -48px; /*half of the width */
+    margin-top: -48px; /*half of the height */
+}
+/* for mobile responsive setting */
+@media(max-width: 767px){
+    .mt-small-2{
+        margin-top: .1rem!important;
+    }
+    .mt-small-5{
+        margin-top: 1rem!important;
+    }
+    .mb-small-2{
+        margin-bottom: .5rem!important;
+    }
+    .mb-small-5{
+        margin-bottom: 1rem!important;
+    }
+}

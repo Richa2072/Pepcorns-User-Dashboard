@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html ng-app="app" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <!-- Favicon -->
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Depo Dashbaord">
+  <meta name="author" content="Rohit Jha | https://rohitjha.in">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>Pepcorns:User Dashboard</title>
+  <link rel="icon" href="https://app.pepcorns.com/assets/img/brand/favicon.ico" type="image/png">
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="./Pepcorns_User Dashboard_files/css">
+  <!-- Icons -->
+<link type="text/css" href="./Pepcorns_User Dashboard_files/style.css" rel="stylesheet">
+<link rel="stylesheet" href="./Pepcorns_User Dashboard_files/nucleo.css" type="text/css">
+<link rel="stylesheet" href="./Pepcorns_User Dashboard_files/all.min.css" type="text/css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+crossorigin="anonymous" />
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="./Pepcorns_User Dashboard_files/argon.css" type="text/css">
+  <link type="text/css" href="./Pepcorns_User Dashboard_files/angular-confirm.min.css" rel="stylesheet">
+  <link type="text/css" href="./Pepcorns_User Dashboard_files/angular-datepicker.min.css" rel="stylesheet">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><script type="text/javascript" charset="UTF-8" src="./Pepcorns_User Dashboard_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Pepcorns_User Dashboard_files/util.js.download"></script></head>
+  <body class="" style="">
+  <!-- Sidenav -->
+  
+    
+  <div id="alertpanels">
+  </div>
+    <div class="">
+      <!-- uiView: --><div ui-view="" class="ng-scope"><nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom container ng-scope">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <h5 class="text-white ng-binding"> - Dashboard</h5>
+        <!-- Navbar links -->
+        <ul class="navbar-nav align-items-center ml-md-auto">
+          <li class="nav-item d-xl-none">
+            <!-- Sidenav toggler -->
+            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item d-sm-none">
+            <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+              <i class="ni ni-zoom-split-in"></i>
+            </a>
+          </li>
+         
+
+        </ul>
+        <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <!-- ngIf: !loggedIndata.profile_data.profile_img --><img alt="Image placeholder" src="./assets/img/dealer_reg.svg" ng-if="!loggedIndata.profile_data.profile_img" class="ng-scope"><!-- end ngIf: !loggedIndata.profile_data.profile_img -->
+                  <!-- ngIf: loggedIndata.profile_data.profile_img -->
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm font-weight-bold ng-binding"></span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Welcome!</h6>
+              </div>
+
+              <!-- <a href="" class="dropdown-item" ui-sref="home.settings"
+                ng-class="{'navmenu_active_cust':selectedMenu == '100'}" ng-click="set_menu_active(100)">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Settings</span>
+              </a> -->
+              <div class="dropdown-divider"></div>
+              <a href="" class="dropdown-item" ng-click="logout()">
+                <i class="ni ni-user-run"></i>
+                <span>Logout</span>
+              </a>
+
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container ng-scope">
+
+    <div ng-show="showLoader" class="ng-hide">
+        <div id="cover-spin"></div>
+    </div>
+    <div ng-show="!showLoader" class="">
+        <div>
+            <div class="header bg-secondary pb-6">
+                <div class="card">
+                    <!-- Card body -->
+    
+                </div>
+    
+            </div>
+            <!-- Page content -->
+            <div class="container-fluid mt--6">
+                <div class="">
+                    <button type="button" class="btn btn-outline-primary" ui-sref="home.campainsAll" href="#!/home/allcamp"><i class="fas fa-arrow-back"></i>Dashboard</button>
+                            <!-- ngIf: !is_session_verified --><button type="button" class="btn btn-danger ng-scope" ng-if="!is_session_verified" ui-sref="login" href="#!/login"><i class="fas fa-arrow-back"></i>Login Now</button><!-- end ngIf: !is_session_verified -->
+                                <a href="https://pepcorns.com"><button type="button" class="btn btn-danger"><i class="fas fa-arrow-back"></i>Back to Website</button></a>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <!-- Avatar -->
+                            <a class="avatar avatar-xl rounded-circle">
+                              <img alt="Image placeholder" 
+                                err-src="./assets/img/placeholder.jpg" src="https://api.pepcorns.com/clientassets/icon1651230435196.png">
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <h1 class="mb-0 display-3">
+                                <a href="" class="ng-binding">Letzrent</a>
+                                </h1>
+                                <p class="text-sm text-muted mb-0 ng-binding">Address : Mumbai
+                                    Maharashtra</p>
+                                <span class="text-success">●</span>
+                                <small class="ng-binding">EMAIL :  | Website :
+                                    https://letzrent.com | </small>
+                                <small class="ng-binding">PAN/TAN : AAJCR3294F</small>
+                                <h5 class="mb-0 ">
+                                    <small ng-bind-html="selectedCampDetails.description" class="ng-binding">Online search, compare &amp; booking platform for self-drive cars, charter flights, living space &amp; more that rewards users</small>
+                                </h5>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <!-- ngIf: !isAddedTofav(selectedCampDetails.camp_id) --><div class="col-lg-6 text-right ng-scope" ng-click="addtofav(selectedCampDetails.camp_id)" style="cursor: pointer;" ng-if="!isAddedTofav(selectedCampDetails.camp_id)">
+                                    <small class="text-primary"><span><i class="fas fa-user-plus"></i>
+                                            Follow</span></small>
+                                </div><!-- end ngIf: !isAddedTofav(selectedCampDetails.camp_id) -->
+                                <!-- ngIf: isAddedTofav(selectedCampDetails.camp_id) -->
+                                <div class="col-lg-6">
+                                    <small class="text-primary" data-toggle="modal" data-target="#shareModal" style="cursor: pointer;"><span><i class="fas fa-share"></i> Share</span></small>
+                                    
+                                      
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3 class="card-text mt-4">
+                            <ul>
+                                <!-- ngRepeat: y in selectedCampDetails.pitchTags --><li style="display:inline;margin:0px 8px 0px 8px;" ng-repeat="y in selectedCampDetails.pitchTags" class="ng-scope"><span class="badge ng-binding" ng-style="{'background-color': '#fbdcda','color':'#000000' }" style="background-color: rgb(251, 220, 218); color: rgb(0, 0, 0);">GEN Z FOUNDER</span></li><!-- end ngRepeat: y in selectedCampDetails.pitchTags --><li style="display:inline;margin:0px 8px 0px 8px;" ng-repeat="y in selectedCampDetails.pitchTags" class="ng-scope"><span class="badge ng-binding" ng-style="{'background-color': '#faf9ff','color':'#000000' }" style="background-color: rgb(250, 249, 255); color: rgb(0, 0, 0);">MOBILITY</span></li><!-- end ngRepeat: y in selectedCampDetails.pitchTags --><li style="display:inline;margin:0px 8px 0px 8px;" ng-repeat="y in selectedCampDetails.pitchTags" class="ng-scope"><span class="badge ng-binding" ng-style="{'background-color': '#faf9ff','color':'#000000' }" style="background-color: rgb(250, 249, 255); color: rgb(0, 0, 0);">E-COMMERCE</span></li><!-- end ngRepeat: y in selectedCampDetails.pitchTags -->
+                            </ul>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row" "="">
+    
+                    <div class=" col-xl-4 order-xl-2">
+                    <div class="card card-pricing  border-0  mb-4">
+                        <div class="card-header bg-transparent">
+                            <p class="text-uppercase ls-1 text-primary display-3 ng-binding" style="margin-bottom: 0px;">₹
+                                0</p>
+                            <small class="ng-binding">0 % of minimum
+                                goal raised</small>
+                        </div>
+                        <div class="card-body  text-left">
+                            <div class="display-4 text-black ng-binding">0</div>
+                            <span class=" text-muted">Total Investors</span>
+                            <hr>
+                            <div class="display-4 text-black ng-binding">0 Days</div>
+                            <span class=" text-muted">Left to Invest</span>
+    
+    
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <button class="btn btn-icon btn-primary btn-block ng-hide" type="button" ng-hide="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)">
+                                <span class="btn-inner--icon"><i class="ni ni-money-coins"></i></span>
+                                <span class="btn-inner--text" ng-click="gotoPayment(selectedCampDetails.camp_id)">Invest
+                                    Now</span>
+                            </button>
+                            <button class="btn btn-icon btn-danger btn-block" type="button" ng-hide="schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)">
+                                <span class="btn-inner--icon"><i class="ni ni-money-coins"></i></span>
+                                <span class="btn-inner--text">Campaign Expired</span>
+                            </button>
+                            <div class="text-bold text-center" style="margin-top: 10px;">
+                                <small class="ng-binding">₹ 1000 Minimum Investment
+                                </small>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <div>
+                        <br>
+                        <h3 class="display-3">
+                            Deal Terms
+                        </h3>
+                        <h5><small class="ng-binding">Perks you will receive for Investing Letzrent</small></h5>
+                    </div>
+                    <br>
+    
+                    <!-- ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 2000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">• LetzRent Premium Apparel (T-shirts &amp; Coffee Mug)
+• Early access to new features &amp; promotions</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Limited to the first 100</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 5000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">• LetzRent Premium Apparel Box (T-shirts, Sweatshirts &amp; additional Swag) 
+| 
+• Early access to new features &amp; promotions</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Limited to the first 200</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 10000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding"> • Exclusive interest in owning equity with an investment of ₹50,000 — ₹2,00,000 | • Invite to exclusive LetzRent team chat | • LetzRent Premium Apparel Box (T-shirts, Sweatshirts &amp; additional Swag) | • Early access to new features &amp; promotions</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Equity benefits with no voting rights. Limited to the first 5 investors.</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 25000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">• Exclusive interest in owning equity with an investment of ₹3,00,000 — ₹10,00,000
+• One-on-one 30 minute video call with Co-Founders
+• Invite to exclusive LetzRent team chat
+• LetzRent Premium Apparel Box (T-shirts, Sweatshirts &amp; additional Swag)
+• Early access to new features &amp; promotions</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Equity benefits with no voting rights. Limited to the first 5 investors.</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 50000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">• Exclusive interest in owning equity with an investment of ₹11,00,000 — ₹30,00,000 
+• In-Person dinner with Co-Founder in Whitefield, Bangalore 
+• One-on-one 30 minute video call with Co-Founders 
+• Invite to exclusive LetzRent team chat 
+• LetzRent Premium Apparel Box (T-shirts, Sweatshirts &amp; additional Swag) 
+• Early access to new features &amp; promotions</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Equity benefits with voting rights. Limited to the first 5 investors.</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp --><div class="card card-pricing border-0 mb-4 ng-scope" ng-repeat="x in allRewardsCamp">
+
+                        <div class="card-body">
+                            <div class="display-2 text-black ng-binding">₹ 100000</div>
+                            <span class=" text-black">Invest</span>
+                            <ul class="list-unstyled my-4">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-terminal"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding"> <li> • Exclusive interest in owning equity with an investment of above ₹40,00,000</li>
+<li>• LetzRent Weekend Experience: Flight &amp; Hotel on us </li>
+  <li>• In-Person dinner with Co-Founder in Whitefield, Bangalore </li>
+<li>• One-on-one 30 minute video call with Co-Founders </li>
+<li>• Invite to exclusive LetzRent team chat </li>
+<li>• LetzRent Premium Apparel Box (T-shirts, Sweatshirts &amp; additional Swag) </li>
+<li>• Early access to new features &amp; promotions</span></li>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-xs icon-shape bg-white shadow rounded-circle">
+                                                <i class="fas fa-pen-fancy"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="pl-2 text-sm text-black ng-binding">TNC : Equity benefits with voting rights(open for discussion of term sheet). Limited to the first 2 investors.</span>
+                                        </div>
+                                    </div>
+                                </li>
+    
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary mb-3" ng-disabled="!schemeStatus_helper.is_between(selectedCampDetails.start_date,selectedCampDetails.end_date)" ng-click="investcustomamount(x.camp_id,x.min_amount)" disabled="disabled">Invest</button>
+                        </div>
+                    </div><!-- end ngRepeat: x in allRewardsCamp -->
+    
+    
+    
+    
+                </div>
+                <div class="col-xl-8 order-xl-1">
+    
+                    <div class="">
+    
+    
+                    </div>
+    
+                    <h5><a target="_blank" href="https://www.youtube.com/watch?v=biGcDeB2PbQ">Unable to view video ? Click here</a></h5>
+                <div class="card bg-dark text-white border-0">
+                    <div class="videoContainer" style="cursor:pointer;">
+                        <iframe video-url="currentVdo" player="bestPlayer" class="ng-isolate-scope" id="unique-youtube-embed-id-1" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="LetzRent for Pepcorns | Making renting simple, affordable and rewarding." width="640" height="390" src="https://www.youtube.com/embed/biGcDeB2PbQ?start=0&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fapp.pepcorns.com&amp;widgetid=1"></iframe>
+                        <!-- perform video playback operations -->
+                        <!-- <button ng-click="bestPlayer.playVideo()">Play</button>
+                        <button ng-click="bestPlayer.stopVideo()">Stop</button> -->
+                        <!-- <img src="{{selectedCampDetails.feature_img}}" alt="" style="max-width: fit-content;
+                        background-size: hidden;
+                        max-height: 300px;  filter: blur(8px);
+-webkit-filter: blur(8px);">
+                        <img src="https://img.icons8.com/external-dreamstale-green-shadow-dreamstale/64/000000/external-play-interaction-dreamstale-green-shadow-dreamstale.png" class="playBtn"> -->
+                     </div>
+                    
+                        <div class="card-footer">
+                            <div class="row">
+    
+                                <div class="col text-center">
+                                    <a target="_blank" class="text-primary" href="https://www.instagram.com/letzrent.official/">
+                                        <small><span class="ng-binding"><i class="fas fa-map-marker-alt"></i>
+                                                Mumbai,Maharashtra</span>
+                                        </small>
+                                    </a>
+    
+                                </div>
+                                <div class="col text-center">
+                                    <a target="_blank" class="text-primary" ng-href="https://letzrent.com" href="https://letzrent.com">
+                                        <small><span class="ng-binding"><i class="fab fa-chrome"></i>
+                                                https://letzrent.com</span> </small>
+                                    </a>
+    
+                                </div>
+                                <div class="col text-center">
+                                    <a target="_blank" class="text-warning" href="https://www.instagram.com/letzrent.official/">
+                                        <span><i class="fab fa-instagram"></i></span>
+                                        <!-- <button type="button" class="btn btn-secondary btn-icon-only">
+                                            
+                                        </button> -->
+                                    </a>
+                                    <a target="_blank" class="text-primary" href="https://www.facebook.com/LetzRent.official/">
+                                        <span><i class="fab fa-facebook"></i></span>
+                                        <!-- <button type="button" class="btn btn-secondary btn-icon-only">
+                                            
+                                        </button> -->
+                                    </a>
+                                    <a target="_blank" class="text-danger" href="https://www.youtube.com/watch?v=biGcDeB2PbQ">
+                                        <span><i class="fab fa-youtube"></i></span>
+                                        <!-- <button type="button" class="btn btn-secondary btn-icon-only">
+                                            
+                                        </button> -->
+                                    </a>
+    
+                                </div>
+    
+    
+    
+    
+    
+                                <!-- List group -->
+    
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                     <!-- <div class="nav-wrapper">
+                        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(11)}"
+                                    ng-click="setSubMenuIndex1(11)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab"
+                                    aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Pitch</a>
+                            </li>
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(12)}"
+                                    ng-click="setSubMenuIndex1(12)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab"
+                                    aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Details</a>
+                            </li>
+    
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(13)}"
+                                    ng-click="setSubMenuIndex1(13)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab"
+                                    aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Team</a>
+                            </li>
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(14)}"
+                                    ng-click="setSubMenuIndex1(14)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab"
+                                    aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Updates</a>
+                            </li>
+    
+    
+                        </ul>
+                    </div> -->
+                    <div class="nav-wrapper">
+                        <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0  active" ng-class="{'active':isSetSubMenuIndex1(11)}" ng-click="setSubMenuIndex1(11)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Pitch</a>
+                            </li>
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(12)}" ng-click="setSubMenuIndex1(12)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Details</a>
+                            </li>
+    
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 " ng-class="{'active':isSetSubMenuIndex1(14)}" ng-click="setSubMenuIndex1(14)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Updates</a>
+                            </li>
+                            <li class="nav-item" style="cursor:pointer;">
+                                <a class="nav-link mb-sm-3 mb-md-0 ng-binding" ng-class="{'active':isSetSubMenuIndex1(13)}" ng-click="setSubMenuIndex1(13)" id="tabs-icons-text-1-tab" data-toggle="tab" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true"><i class="ni ni-bag-17 mr-2"></i>
+                                    Comments (2)</a>
+                            </li>
+    
+    
+    
+                        </ul>
+                    </div>
+                    
+    
+    
+    
+    
+    
+    
+                    <!-- ngIf: isSetSubMenuIndex1(11) --><div class="card ng-scope" ng-if="isSetSubMenuIndex1(11)">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">DECK </h3>
+                                </div>
+                                <!-- ngIf: selectedCampDetails.pitchDeckFileUrl --><div class="col-4 text-right ng-scope" ng-if="selectedCampDetails.pitchDeckFileUrl">
+                                    <a href="https://api.pepcorns.com/clientassets/icon1651230174497.pdf" target="_blank"><button class="btn btn-sm btn-primary">DOWNLOAD PITCH DECK</button></a>
+                                </div><!-- end ngIf: selectedCampDetails.pitchDeckFileUrl -->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- <div>
+                                <h5>Problem Statement</h5>
+                                <h5 class="text-muted" ng-bind-html="selectedCampDetails.title"></h5>
+                            </div>
+                            <hr>
+                            <br> -->
+                            <div>
+                                <h5>10 Seconds Pitch</h5>
+                                <h5 class="text-muted ng-binding" ng-bind-html="selectedCampDetails.description">Online search, compare &amp; booking platform for self-drive cars, charter flights, living space &amp; more that rewards users</h5>
+                            </div>
+                            <hr>
+                            <div>
+                                <h5>Deck Info</h5>
+                                <h5 class="text-muted ng-binding" ng-bind-html="selectedCampDetails.deck_info">
+<h1><span><span><span><strong>LetzRent</strong></span></span></span></h1>
+
+<hr>
+<h3><span><strong><span><span><span><span>Highlights</span></span></span></span></strong></span></h3>
+
+<ul>
+	<li>Running profitable pilot in&nbsp;Bengaluru.</li>
+	<li>20k+ registered users, 4.2 app rating and 10k+ social media following&nbsp;&nbsp;</li>
+	<li>Company is projecting 100cr+ transaction volume in 5 years</li>
+	<li>Founder with the marketing expertise of 17+ years in Reliance, Naaptol, Tv9 and Zee and more.</li>
+	<li>GenZ CTO and co-founder.</li>
+	<li>Expansion is easy and the untapped customer base is huge.</li>
+	<li>Been in news articles, already making buzz.</li>
+</ul>
+
+<hr>
+<h3><span><strong><span><span><span><span>Traction</span></span></span></span></strong></span></h3>
+
+<p><span><span><span><span><img alt="" src="https://images.unlayer.com/projects/15608/1651352968445-10.PNG">.</span></span></span></span></p>
+
+<hr>
+<h3><strong><span><span>Smarter Way To&nbsp;<span><span>Rent</span></span></span></span></strong></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352942115-6.png"></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><span><strong>Customers Want Low Prices</strong></span></span></span></span></span></span></span></span></h3>
+
+<p><span><span><span><span><span><span>To get low prices 85% of the consumers check at least 2 data points (Source: BCG Consumer Trends). In various sectors information centred buying has been made more efficient by companies like MMT for Travel, Policy bazaar for Insurance, Myntra or Shopperstop for Lifestyle products. However for rental products, there is no one &amp; to fill this need and make the process efficient we launched LetzRent, hoping to have a first-mover advantage and dominate the market in the coming future.</span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span><img alt="" src="https://images.unlayer.com/projects/15608/1651352925215-3.PNG"></span></span></span></span></span></span></p>
+
+<hr>
+<h3><span><strong><span><span><span><span>Single KYC</span></span></span></span></strong></span></h3>
+
+<p><span><span><span><span>Renting is a KYC dependent process, every time a customer books a service from a different service provider he/she will have to get a new KYC done. With Letzrent, the hassle of multiple KYC gets removed and with a single KYC, customers can rent from multiple brands.</span></span></span></span></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><strong>Vast Selection</strong></span></span></span></span></span></span></span></h3>
+
+<p><span><span><span><span><span>Being an aggregator Letzrent offers more options than category leaders.</span></span></span></span></span></p>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352918059-2.png"></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><span><strong>Why Renting?&nbsp;</strong></span></span></span></span></span></span></span></span></h3>
+
+<p><span><span><span><span><span><span>1.&nbsp; Demographic Twist: Commitment phobic millennials prefer an asset lite life with a bias toward renting rather than buying.</span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>2.&nbsp; Flexibility: Renting allows people to upgrade or change assets easily.</span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span>3.&nbsp; Convenience: With the rental customers dispense with the headache of down payment, maintenance, insurance etc.</span></span></span></span></span></span></p>
+
+<p><span><span><span><span><span><span><img alt="" src="https://images.unlayer.com/projects/15608/1651352954073-8.png"></span></span></span></span></span></span></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><strong>Market Size</strong></span></span></span></span></span></span></span></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352961142-9.png"></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><strong>Competitors</strong></span></span></span></span></span></span></span></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352937596-5.PNG"></p>
+
+<hr>
+<h3><span><strong><span><span><span><span>Feedback: People love us</span></span></span></span></strong></span></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352929580-4.PNG"></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><strong>Future and growth</strong></span></span></span></span></span></span></span></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352907089-1.PNG"></p>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352949305-7.png"></p>
+
+<hr>
+<h3><span><span><span><span><span><span><span><strong>Core Team</strong></span></span></span></span></span></span></span></h3>
+
+<p><img alt="" src="https://images.unlayer.com/projects/15608/1651352986615-11.png"></p>
+
+<hr>
+<h3><span><span><strong>Documents for Investors</strong></span></span></h3>
+
+<ul>
+	<li><a href="http://drive.google.com/file/d/1clHQGD__nkbsA-cLz3A6_tABUuk5rl3w/view">Due Diligence Report</a></li><li><a href="http://drive.google.com/file/d/1i02nUH-27EhiROtNlvXOfkPP7iTfwjpw/view?usp=sharing">Certificate of Incorporation</a></li></ul></h5>
+                            </div>
+                            <hr>
+    
+    
+                        </div>
+                    </div><!-- end ngIf: isSetSubMenuIndex1(11) -->
+    
+                    <!-- ngIf: isSetSubMenuIndex1(12) -->
+    
+                    <!-- ngIf: isSetSubMenuIndex1(13) -->
+
+                    <!-- ngIf: isSetSubMenuIndex1(14) -->
+    
+                </div>
+            </div>
+    
+    
+    
+    
+            <!-- Footer -->
+    
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade ng-scope" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-facebook btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-facebook"></i></span>
+            </button>
+            <button type="button" class="btn btn-twitter btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-twitter"></i></span>
+            </button>
+            <button type="button" class="btn btn-google-plus btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-google-plus-g"></i></span>
+            </button>
+            <button type="button" class="btn btn-instagram btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-instagram"></i></span>
+            </button>
+            <button type="button" class="btn btn-pinterest btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-pinterest"></i></span>
+            </button>
+            <button type="button" class="btn btn-youtube btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-youtube"></i></span>
+            </button>
+            <button type="button" class="btn btn-vimeo btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-vimeo-v"></i></span>
+            </button>
+            <button type="button" class="btn btn-slack btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-slack"></i></span>
+            </button>
+            <button type="button" class="btn btn-dribbble btn-icon-only rounded-circle">
+                <span class="btn-inner--icon"><i class="fab fa-dribbble"></i></span>
+            </button>
+
+            <hr>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" placeholder="Share Url" aria-label="Share Url" aria-describedby="button-addon2" ng-model="shareurl.link">
+                <!-- <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="button" id="button-addon2">Copy</button>
+                </div> -->
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade ng-scope" id="addCommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <!-- <hr> -->
+                <form name="newCommentModalf" class="ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" placeholder="Post new Comment" aria-label="Share Url" aria-describedby="button-addon2" ng-model="newCommentadd.newComment" maxlength="200" minlength="5" required="">
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-disabled="newCommentModalf.$invalid" ng-click="addNewCommentfun()" disabled="disabled">Post</button>
+
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+
+
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="//www.youtube.com/iframe_api"></script><script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/374003a5/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="./assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="./assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!-- Optional JS -->
+  <script src="./assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="./assets/vendor/chart.js/dist/Chart.extension.js"></script>
+  <!-- Argon JS -->
+  <script src="./assets/js/argon.js?v=1.1.0"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCycoe-HI49yLUFvvJEV9nNdwBgg2_MzfQ"></script>
+  <script src="./assets/js/argon.js?v=1.0.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.7/angular-sanitize.min.js"></script>
+  <script src="./assets/js/angular-confirm.min.js"></script>
+  <script src="./assets/js/angularStorage.js"></script>
+  <script src="./assets/js/angular-datepicker.min.js"></script>
+  <script src="./assets/js/ng_file_upload.js"></script>
+  <script src="./assets/js/chartjs.js"></script>
+  <script src="./assets/js/angular-chart.min.js"></script>
+    <!-- Include YT library and this directive -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="./assets/js/youtube-embed.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/apiservice.js"></script>
+  <script src="./assets/js/helperService.js"></script>
+  <script src="./assets/js/constants.js"></script>
+  <script src="./assets/js/loginController.js"></script>
+  <script src="./assets/js/signupController.js"></script>
+  <script src="./assets/js/signupVController.js"></script>
+  <script src="./assets/js/forgotpController.js"></script>
+  <script src="./assets/js/dashController.js"></script>
+  <script src="./assets/js/menuController.js"></script>
+  <script src="./assets/js/pitchController.js"></script>
+  <script src="./assets/js/campController.js"></script>
+  <script src="./assets/js/myteamController.js"></script>
+  <script src="./assets/js/pymtController.js"></script>
+  <script src="./assets/js/backersController.js"></script>
+  <script src="./assets/js/campallController.js"></script>
+  <script src="./assets/js/newcompController.js"></script>
+  <script src="./assets/js/newinvController.js"></script>
+  <script src="./assets/js/favController.js"></script>
+  <script src="./assets/js/payoutController.js"></script>
+  <script src="./assets/js/campDetailsController.js"></script>
+  <script src="./assets/js/invPortfolioController.js"></script>
+  <script src="./assets/js/invRewardsController.js"></script>
+  <script src="./assets/js/campallpublicController.js"></script>
+  <script src="./assets/js/investmentsController.js"></script>
+  <script src="./assets/js/settingsController.js"></script>
+  <script src="./assets/js/escrowController.js"></script>
+
+  <script src="./assets/js/payoutVerifyController.js"></script>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alasql/0.4.2/alasql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.2/xlsx.core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+  <script async="true" id="context" type="text/javascript" src="https://sandbox-payments.open.money/layer"></script>
+
+ 
+ 
+
+
+</body>
+</html>
